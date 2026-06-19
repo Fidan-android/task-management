@@ -2,7 +2,7 @@ package com.example.taskmanagement.splash.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.taskmanagement.splash.data.repository.FirstLaunchRepositoryImpl
+import com.example.core.data.repository.FirstLaunchRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -27,9 +27,6 @@ class SplashViewModel @Inject constructor
             delay(2000.milliseconds)
             val isFirstLaunch = firstLaunchRepositoryImpl.get()
             _isFirstLaunch.emit(!isFirstLaunch)
-            /*if (!isFirstLaunch) {
-                firstLaunchRepositoryImpl.set()
-            }*/
         }
     }
 }

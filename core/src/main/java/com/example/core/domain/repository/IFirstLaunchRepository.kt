@@ -1,4 +1,4 @@
-package com.example.taskmanagement.splash.domain.repository
+package com.example.core.domain.repository
 
 interface IFirstLaunchRepository {
     suspend fun set()

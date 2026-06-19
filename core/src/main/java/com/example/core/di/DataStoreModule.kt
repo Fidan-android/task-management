@@ -3,7 +3,7 @@ package com.example.core.di
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
+import com.example.core.data.datastore.dataStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,8 +14,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DataStoreModule {
-    val Context.dataStore by preferencesDataStore(name = "task_management")
-
     @Provides
     @Singleton
     fun provideDataSource(@ApplicationContext appContext: Context): DataStore<Preferences> {

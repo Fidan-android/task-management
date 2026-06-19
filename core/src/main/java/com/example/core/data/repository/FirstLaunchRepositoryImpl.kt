@@ -1,10 +1,10 @@
-package com.example.taskmanagement.splash.data.repository
+package com.example.core.data.repository
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
-import com.example.taskmanagement.splash.domain.repository.IFirstLaunchRepository
+import com.example.core.domain.repository.IFirstLaunchRepository
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 

@@ -12,7 +12,7 @@ import com.example.taskmanagement.welcome.presentation.welcomeGraph
 fun AppNavHost(navController: NavHostController) {
     NavHost(navController = navController, startDestination = SplashRoute) {
         splashGraph(navController)
+        welcomeGraph(navController)
         homeGraph()
-        welcomeGraph()
     }
 }
