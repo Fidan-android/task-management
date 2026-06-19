@@ -30,4 +30,5 @@ val Orange = Color(0xFFF0B646)
 
 val Orange15 = Color(0x26F0B646)
 
+val Transparent = Color(0x00000000)
 val DarkBackground = Color(0xFF464646)

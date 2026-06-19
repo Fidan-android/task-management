@@ -5,14 +5,11 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.core.ui.theme.Blue
 import com.example.core.ui.theme.Blue15
@@ -26,18 +23,13 @@ import com.example.core.ui.theme.Yellow
 import com.example.core.ui.theme.Yellow15
 
 @Composable
-fun AppScaffold(
+fun AppBackground(
     modifier: Modifier = Modifier,
     content: @Composable BoxScope.() -> Unit
 ) {
-    val scaffoldSettings = modifier
-        .fillMaxSize()
-        .statusBarsPadding()
-        .navigationBarsPadding()
-
-    Box(modifier = scaffoldSettings) {
-        Background()
+    Box(modifier = modifier.fillMaxSize()) {
         content()
+        Background()
     }
 }
 

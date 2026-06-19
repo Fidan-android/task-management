@@ -16,7 +16,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             TaskManagementTheme {
-                AppNavHost(navController = navController)
+                AppNavHost(
+                    navController = navController
+                )
             }
         }
     }
