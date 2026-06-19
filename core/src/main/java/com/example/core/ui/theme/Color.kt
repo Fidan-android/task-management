@@ -22,4 +22,12 @@ val Cyan15 = Color(0x262555FF)
 
 val Pink = Color(0xFFFFD7E4)
 
+val Plum = Color(0xFF7C46F0)
+
+val Plum15 = Color(0x267C46F0)
+
+val Orange = Color(0xFFF0B646)
+
+val Orange15 = Color(0x26F0B646)
+
 val DarkBackground = Color(0xFF464646)
