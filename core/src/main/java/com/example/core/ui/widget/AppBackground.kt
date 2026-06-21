@@ -12,15 +12,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.core.ui.theme.Blue
-import com.example.core.ui.theme.Blue15
+import com.example.core.ui.theme.Blue25
 import com.example.core.ui.theme.Green
-import com.example.core.ui.theme.Green15
+import com.example.core.ui.theme.Green25
 import com.example.core.ui.theme.Orange
-import com.example.core.ui.theme.Orange15
+import com.example.core.ui.theme.Orange25
 import com.example.core.ui.theme.Plum
-import com.example.core.ui.theme.Plum15
+import com.example.core.ui.theme.Plum25
 import com.example.core.ui.theme.Yellow
-import com.example.core.ui.theme.Yellow15
+import com.example.core.ui.theme.Yellow25
 
 @Composable
 fun AppBackground(
@@ -37,7 +37,7 @@ fun AppBackground(
 private fun Background() {
     Column(modifier = Modifier.fillMaxSize()) {
         GradientCircle(
-            colors = listOf(Green, Green15),
+            colors = listOf(Green, Green25),
             modifier = Modifier
                 .size(70.dp)
                 .align(Alignment.Start)
@@ -45,26 +45,26 @@ private fun Background() {
         Spacer(modifier = Modifier.weight(1f))
         Box(modifier = Modifier.padding(start = 40.dp)) {
             GradientCircle(
-                colors = listOf(Plum, Plum15),
+                colors = listOf(Plum, Plum25),
                 modifier = Modifier
                     .size(74.dp)
             )
         }
         GradientCircle(
-            colors = listOf(Plum, Plum15),
+            colors = listOf(Plum, Plum25),
             modifier = Modifier
                 .size(60.dp)
                 .align(Alignment.End)
         )
         GradientCircle(
-            colors = listOf(Yellow, Yellow15),
+            colors = listOf(Yellow, Yellow25),
             modifier = Modifier
                 .size(120.dp)
                 .align(Alignment.End)
         )
         Spacer(modifier = Modifier.weight(1f))
         GradientCircle(
-            colors = listOf(Blue, Blue15),
+            colors = listOf(Blue, Blue25),
             modifier = Modifier
                 .size(96.dp)
                 .align(Alignment.Start)
@@ -76,7 +76,7 @@ private fun Background() {
                 .align(Alignment.End)
         ) {
             GradientCircle(
-                colors = listOf(Orange, Orange15),
+                colors = listOf(Orange, Orange25),
                 modifier = Modifier
                     .size(58.dp)
             )

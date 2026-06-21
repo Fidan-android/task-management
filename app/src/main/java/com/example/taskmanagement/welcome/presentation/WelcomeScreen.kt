@@ -1,7 +1,7 @@
 package com.example.taskmanagement.welcome.presentation
 
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,7 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,17 +23,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.core.ui.theme.Blue
-import com.example.core.ui.theme.Blue15
+import com.example.core.ui.theme.Blue25
 import com.example.core.ui.theme.Cyan
-import com.example.core.ui.theme.Cyan15
+import com.example.core.ui.theme.Cyan25
 import com.example.core.ui.theme.Green
-import com.example.core.ui.theme.Green15
+import com.example.core.ui.theme.Green25
 import com.example.core.ui.theme.Pink
+import com.example.core.ui.theme.Purple
 import com.example.core.ui.theme.TaskManagementTheme
 import com.example.core.ui.theme.White
 import com.example.core.ui.theme.Yellow
-import com.example.core.ui.theme.Yellow15
+import com.example.core.ui.theme.Yellow25
+import com.example.core.ui.widget.ColoredCircle
 import com.example.core.ui.widget.CustomButton
+import com.example.core.ui.widget.CustomButtonStyle
 import com.example.core.ui.widget.GradientCircle
 import com.example.taskmanagement.R
 
@@ -71,6 +74,19 @@ fun WelcomeScreen(
                         .align(Alignment.CenterEnd)
                 )
             }
+
+            val buttonStyle = CustomButtonStyle(
+                height = 60.dp,
+                cornerRadius = 14.dp,
+                background = Purple,
+                text = "Let's Start",
+                iconSize = Size(width = 42f, height = 32f),
+                icon = painterResource(R.drawable.arrow_right),
+                textStyle = MaterialTheme.typography.titleLarge.copy(
+                    fontSize = 19.sp,
+                    color = White
+                ),
+            )
             Column(
                 modifier = Modifier.weight(1f),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -90,17 +106,13 @@ fun WelcomeScreen(
                     modifier = Modifier.padding(bottom = 40.dp, start = 50.dp, end = 50.dp)
                 )
                 CustomButton(
-                    modifier = Modifier.padding(start = 30.dp, end = 30.dp),
-                    text = "Let's Start",
-                    style = MaterialTheme.typography.titleLarge.copy(
-                        fontSize = 19.sp,
-                        color = White
-                    ),
-                    icon = painterResource(R.drawable.arrow_right),
-                    onClick = {
-                        viewModel.onLetsStart()
-                        onNavigateToHome()
-                    }
+                    buttonStyle = buttonStyle,
+                    modifier = Modifier
+                        .padding(start = 30.dp, end = 30.dp)
+                        .clickable(onClick = {
+                            viewModel.onLetsStart()
+                            onNavigateToHome()
+                        }),
                 )
             }
         }
@@ -121,12 +133,12 @@ private fun FemaleImage() {
 private fun YellowGradient(modifier: Modifier) {
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         GradientCircle(
-            colors = listOf(Yellow, Yellow15),
+            colors = listOf(Yellow, Yellow25),
             modifier = Modifier
                 .size(80.dp)
         )
         Row {
-            Circle(color = Blue, modifier = Modifier.size(4.dp))
+            ColoredCircle(color = Blue, modifier = Modifier.size(4.dp))
             Spacer(modifier = Modifier.size(80.dp))
         }
         Image(
@@ -141,11 +153,11 @@ private fun YellowGradient(modifier: Modifier) {
 private fun GreenGradient(modifier: Modifier) {
     Row(modifier = modifier) {
         GradientCircle(
-            colors = listOf(Green, Green15),
+            colors = listOf(Green, Green25),
             modifier = Modifier.size(80.dp)
         )
         Column {
-            Circle(color = Yellow, modifier = Modifier.size(4.dp))
+            ColoredCircle(color = Yellow, modifier = Modifier.size(4.dp))
             Spacer(modifier = Modifier.size(10.dp))
         }
         Image(
@@ -169,10 +181,10 @@ private fun BlueGradient(modifier: Modifier) {
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
             Spacer(modifier = Modifier.size(width = 60.dp, height = 120.dp))
-            Circle(color = Pink, modifier = Modifier.size(4.dp))
+            ColoredCircle(color = Pink, modifier = Modifier.size(4.dp))
         }
         GradientCircle(
-            colors = listOf(Blue, Blue15),
+            colors = listOf(Blue, Blue25),
             modifier = Modifier.size(60.dp)
         )
     }
@@ -188,19 +200,12 @@ private fun CyanGradient(modifier: Modifier) {
         )
         Column {
             Spacer(modifier = Modifier.size(width = 20.dp, height = 120.dp))
-            Circle(color = Green, modifier = Modifier.size(4.dp))
+            ColoredCircle(color = Green, modifier = Modifier.size(4.dp))
         }
         GradientCircle(
-            colors = listOf(Cyan, Cyan15),
+            colors = listOf(Cyan, Cyan25),
             modifier = Modifier.size(70.dp)
         )
-    }
-}
-
-@Composable
-private fun Circle(color: Color, modifier: Modifier) {
-    Canvas(modifier = modifier) {
-        drawCircle(color = color, radius = size.width)
     }
 }
 

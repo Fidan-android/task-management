@@ -47,6 +47,7 @@ dependencies {
     implementation(project(":core"))
     implementation(libs.navigation.compose)
     implementation(libs.androidx.datastore)
+    implementation(libs.androidx.compose.foundation.layout)
 
     // Hilt
     implementation(libs.hilt.android)
