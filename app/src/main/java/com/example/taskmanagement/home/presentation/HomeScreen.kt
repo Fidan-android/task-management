@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.MaterialTheme
@@ -25,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -39,6 +42,8 @@ import com.example.core.ui.widget.AppBackground
 import com.example.core.ui.widget.ColoredCircle
 import com.example.core.ui.widget.CustomButton
 import com.example.core.ui.widget.CustomButtonStyle
+import com.example.core.ui.widget.CustomDonutChart
+import com.example.core.ui.widget.CustomDonutChartStyle
 import com.example.taskmanagement.R
 
 @Composable
@@ -47,24 +52,20 @@ fun HomeScreen() {
         modifier = Modifier
             .statusBarsPadding()
     ) {
-        Scaffold { innerPadding ->
-            Column(
-                modifier = Modifier.padding(innerPadding)
-            ) {
-                Header(
-                    Modifier
-                        .fillMaxWidth()
-                        .padding(top = 28.dp, start = 22.dp, end = 22.dp)
-                        .height(IntrinsicSize.Min),
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-                Statistics(
-                    modifier = Modifier
-                        .padding(horizontal = 22.dp)
-                        .fillMaxWidth()
-                        .height(IntrinsicSize.Min),
-                )
-            }
+        Column {
+            Header(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(top = 28.dp, start = 22.dp, end = 22.dp)
+                    .height(IntrinsicSize.Min),
+            )
+            Spacer(modifier = Modifier.height(24.dp))
+            Statistics(
+                modifier = Modifier
+                    .padding(horizontal = 22.dp)
+                    .fillMaxWidth()
+                    .height(IntrinsicSize.Min),
+            )
         }
     }
 }
@@ -138,6 +139,7 @@ private fun Statistics(modifier: Modifier) {
     Card(
         colors = colors,
         modifier = modifier,
+        shape = RoundedCornerShape(corner = CornerSize(24.dp))
     ) {
         Row(
             modifier = Modifier
@@ -163,7 +165,28 @@ private fun Statistics(modifier: Modifier) {
                         .clickable(onClick = {}),
                 )
             }
-            Column(modifier = Modifier.weight(2f)) {}
+            Column(
+                modifier = Modifier
+                    .weight(2f)
+                    .fillMaxHeight(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                val donutStyle = CustomDonutChartStyle(
+                    percent = 85,
+                    color = Lavender,
+                    strokeWidth = 30f,
+                    textStyle = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = 14.sp,
+                        color = White
+                    ),
+                )
+                CustomDonutChart(
+                    donutStyle = donutStyle,
+                    modifier = Modifier
+                        .size(width = 80.dp, height = 80.dp)
+                )
+            }
             Image(
                 painter = painterResource(R.drawable.more),
                 contentDescription = "more",
