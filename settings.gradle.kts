@@ -25,3 +25,4 @@ dependencyResolutionManagement {
 rootProject.name = "task management"
 include(":app")
 include(":core")
+include(":features")

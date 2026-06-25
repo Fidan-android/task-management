@@ -3,7 +3,7 @@ package com.example.core.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val White = Color(0xFFFFFFFF)
-val Purple = Color(0XFF5935d8)
+val Purple = Color(0XFF5F33E1)
 
 val Yellow = Color(0xFFEDF046)
 val Yellow25 = Color(0x40EDF046)

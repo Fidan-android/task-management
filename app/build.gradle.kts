@@ -45,6 +45,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":features"))
     implementation(libs.navigation.compose)
     implementation(libs.androidx.datastore)
     implementation(libs.androidx.compose.foundation.layout)
