@@ -164,7 +164,7 @@ private fun Statistics(modifier: Modifier) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 val donutStyle = CustomDonutChartStyle(
-                    percent = Random.nextInt(1, 100),
+                    percent = 85,
                     color = Lavender,
                     strokeWidth = 30f,
                     textStyle = MaterialTheme.typography.bodyMedium.copy(

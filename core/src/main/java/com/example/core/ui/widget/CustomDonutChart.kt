@@ -2,6 +2,7 @@ package com.example.core.ui.widget
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -13,6 +14,7 @@ import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import com.example.core.ui.theme.Lavender
 
+@Immutable
 data class CustomDonutChartStyle(
     val color: Color,
     val percent: Int,
